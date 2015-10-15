@@ -6,8 +6,8 @@
       <li><a href='#/shorten' class='create'>Shorten</a></li>
     </ul>
   </div>
-
-  <div class="link" ng-repeat='link in data.links'>
+  Search:<input placeholder='search' ng-model='search'></input>
+  <div class="link" ng-repeat='link in data.links | orderBy:"-visits"| filter:search'>
     <img src='../assets/redirect_icon.png'/>
     <div class='info'>
       <div class='visits'>
