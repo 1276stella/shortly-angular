@@ -1,27 +1,12 @@
 angular.module('shortly.shorten', [])
 
-.controller('ShortenController', function ($scope, $location,$http, Links) {
+.controller('ShortenController', function ($scope, $location, Links) {
   // Your code here
-  $scope.link={};
+  $scope.link={}; // why do we need this?
 
   $scope.addLink=function(link){
-    $http({
-      method:'POST',
-      url: '/api/links',
-      data: link
-      })
-    .then(function(resp){
-      console.log(resp.data);
-    });
-
+    console.log('link', link);
+    Links.addLink(link);
   };
 });
 
-
-
-//  it('should be able to create new links with addLink()', function () {
-//     $httpBackend.expectPOST("/api/links").respond(201, '');
-//     $scope.addLink();
-//     $httpBackend.flush();
-//   });
-// });
