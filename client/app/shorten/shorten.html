@@ -7,11 +7,12 @@
   </ul>
  </div>
 
- <form name='shortenForm' ng-submit='addLink(link)'>
-    <input type='text' ng-model='link.url'>
-    <button>add</button>
+ <form name='shortenForm' ng-submit='addLink(link)' novalidate>
+    <input type='url' name="link" ng-model='link.url' required>
+    <button type="submit" ng-disabled="shortenForm.$invalid">add</button>
+    <p ng-show="shortenForm.link.$error.required">URL required</p>
+    <p ng-show="shortenForm.link.$error.url">Invalid URL</p>
   </form>
-  <img class='spinner' src='../assets/spiffygif_46x46.gif'>
   <div class='message'></div>
 
 </div>
