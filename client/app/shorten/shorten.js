@@ -5,7 +5,6 @@ angular.module('shortly.shorten', [])
   $scope.link={}; // why do we need this?
 
   $scope.addLink=function(link){
-    console.log('link', link);
     Links.addLink(link);
   };
 });
